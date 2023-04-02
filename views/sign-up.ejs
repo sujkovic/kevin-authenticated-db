@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+  <body>
+    <h1>Sign up</h1>
+    <% if (typeof errors !== 'undefined') { %>
+    <form action="" method="POST">
+      <label for="username">Username</label>
+      <input
+        name="username"
+        placeholder="jsmith1"
+        type="text"
+        value="<%= user.username%>"
+      />
+      <label for="password">Password</label>
+      <input type="password" name="password" />
+      <button>Sign up</button>
+    </form>
+    <% } else { %>
+    <form action="" method="POST">
+      <label for="username">Username</label>
+      <input name="username" placeholder="jsmith1" type="text" />
+      <label for="password">Password</label>
+      <input type="password" name="password" />
+      <button>Sign up</button>
+    </form>
+    <% } %> <% if (typeof errors !== 'undefined') { %>
+    <ul>
+      <% errors.forEach(function(error) { %>
+      <li><%= error.msg %></li>
+      <% }); %>
+    </ul>
+    <% } %> <% if (typeof userExists !== 'undefined') { %>
+    <br />
+    <div>User already exists!</div>
+    <% } %>
+  </body>
+</html>
